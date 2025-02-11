@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+#squares {
+  width: 384px;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid black;
+}
+
+.square {
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 432px) {
+  #squares {
+    width: 256px;
+  }
+}
+
+dialog {
+  background-color: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(2px);
+  border: none;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+dialog:not([open]) {
+  display: none;
+}
+
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
+#dialog-background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.dialog-card {
+  background-color: white;
+  padding: 12px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
