@@ -11,29 +11,62 @@ body {
   min-height: 100vh;
 }
 
-main {
+.card {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
 }
 
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.main-content {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 12px;
+  position: relative;
+}
+
 #squares {
-  width: 384px;
+  width: 512px;
   display: flex;
   flex-wrap: wrap;
   border: 1px solid black;
+  user-select: none;
 }
 
 .square {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
 }
 
-@media (max-width: 432px) {
-  #squares {
-    width: 256px;
-  }
+.tools {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: end;
+
+  position: absolute;
+  left: 0;
+  transform: translateX(calc(-100% - 12px));
+}
+
+.tools-block {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 12px;
+}
+
+#brush-size-input,
+#eraser-size-input {
+  width: 50px;
 }
 
 dialog {
@@ -58,7 +91,7 @@ body:has(dialog[open]) {
   overflow: hidden;
 }
 
-#dialog-background {
+.dialog-background {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -72,5 +105,34 @@ body:has(dialog[open]) {
   border: 1px solid black;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 12px;
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .tools {
+    position: unset;
+    transform: unset;
+    align-items: center;
+  }
+
+  .tools-block {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  #squares {
+    width: 384px;
+  }
+}
+
+@media (max-width: 432px) {
+  #squares {
+    width: 256px;
+  }
 }

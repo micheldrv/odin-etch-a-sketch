@@ -9,18 +9,88 @@
   <body>
     <main class="card">
       <h1>Etch a Sketch</h1>
-      <button id="canvas-size-btn">Canvas Size</button>
-      <button id="clear-canvas-btn">Clear Canvas</button>
-      <div id="squares"></div>
+      <div class="row">
+        <button id="canvas-size-btn">Canvas Size</button>
+        <button id="clear-canvas-btn">Clear Canvas</button>
+      </div>
+      <div class="main-content">
+        <div id="squares"></div>
+        <div class="tools">
+          <div class="tools-block">
+            <label>
+              <span>Brush Color:</span>
+              <input type="color" id="brush-color-picker" />
+            </label>
+            <label>
+              <span>Eraser Color:</span>
+              <input type="color" id="eraser-color-picker" value="#ffffff" />
+            </label>
+          </div>
+          <div class="tools-block">
+            <label>
+              <input type="radio" name="eraser" id="brush-option" checked />
+              <span>Brush</span>
+            </label>
+            <label>
+              <input type="radio" name="eraser" id="eraser-option" />
+              <span>Eraser</span>
+            </label>
+          </div>
+          <div class="tools-block">
+            <label>
+              <span>Brush size:</span>
+              <input
+                type="number"
+                id="brush-size-input"
+                value="1"
+                min="1"
+                max="8"
+              />
+            </label>
+            <label>
+              <span>Eraser size:</span>
+              <input
+                type="number"
+                id="eraser-size-input"
+                value="1"
+                min="1"
+                max="8"
+              />
+            </label>
+          </div>
+        </div>
+      </div>
+      <button id="credits-btn">Credits</button>
     </main>
     <dialog id="canvas-size-dialog">
-      <div id="dialog-background"></div>
+      <div class="dialog-background"></div>
       <div class="dialog-card">
         <h2>Canvas Size</h2>
         <input type="number" id="canvas-size-input" />
         <p>(max: 100)</p>
-        <button id="dialog-confirm">Set</button>
-        <button id="dialog-cancel">Cancel</button>
+        <div class="row">
+          <button id="dialog-confirm">Set</button>
+          <button class="dialog-cancel">Cancel</button>
+        </div>
+      </div>
+    </dialog>
+    <dialog id="credits-dialog">
+      <div class="dialog-background"></div>
+      <div class="dialog-card">
+        <h2>Credits</h2>
+        <p>
+          <span>Developed by</span>
+          <a href="https://github.com/micheldrv">micheldrv</a>
+        </p>
+        <p>
+          <span>Created as part of</span>
+          <a
+            href="https://www.theodinproject.com/lessons/foundations-etch-a-sketch"
+            >The Odin Project</a
+          >
+          <span>'s curriculum</span>
+        </p>
+        <button class="dialog-cancel">Close</button>
       </div>
     </dialog>
     <script src="script.js"></script>
